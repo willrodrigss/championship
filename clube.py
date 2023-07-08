@@ -1,6 +1,7 @@
 class Clube():
-    def __init__(self, nome, pts=0, vit=0, emp=0, der=0, gp=0, gc=0, sg=0):
+    def __init__(self, nome, jogos=0, pts=0, vit=0, emp=0, der=0, gp=0, gc=0, sg=0):
         self.nome = nome
+        self.jogos = jogos
         self.pts = pts
         self.vit = vit
         self.emp = emp
@@ -19,4 +20,16 @@ class Clube():
 
     def perdeu(self):
         self.der += 1
+
+    def estatisticas(self):
+        print(self.nome, " ", 
+              "J: ", self.jogos, " " ,
+              "P: ", self.pts, " " ,
+              "V: ", self.vit, " " ,
+              "E: ", self.emp, " " ,
+              "D: ", self.der, " " ,
+              "GP: ", self.gp, " " ,
+              "GC: ", self.gc, " " ,
+              "SG: ", self.sg
+            )
     

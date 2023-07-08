@@ -14,4 +14,9 @@ r1.golF()
 
 r1.placar()
 
+r1.fimdeJogo()
+
+fla.estatisticas()
+
+
         

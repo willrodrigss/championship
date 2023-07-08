@@ -15,7 +15,6 @@ class Partida():
         self.fora.gc += 1
         self.casa.sg += 1
         self.fora.sg -= 1
-        self.atualizaVED()
 
     def golF(self):
         self.golFora += 1
@@ -23,23 +22,25 @@ class Partida():
         self.fora.gp += 1
         self.casa.sg -= 1
         self.fora.sg += 1
-        self.atualizaVED()
     
     def atualizaVED(self):
         if(self.golCasa > self.golFora):
-            self.casa.vit += 1
-            self.fora.der += 1
+            self.casa.ganhou()
+            self.fora.perdeu()
         
         if(self.golCasa < self.golFora):
-            self.casa.der += 1
-            self.fora.vit += 1
+            self.casa.perdeu()
+            self.fora.ganhou()
 
         if(self.golCasa == self.golFora):
-            self.casa.emp += 1
-            self.fora.emp += 1
+            self.casa.empatou()
+            self.fora.empatou()
     
     def placar(self):
         print(self.casa.nome, " ", self.golCasa, " x " , self.golFora, " ",self.fora.nome)
-
- 
     
+    def fimdeJogo(self):
+        self.casa.jogos += 1
+        self.fora.jogos += 1
+        self.atualizaVED()
+        
