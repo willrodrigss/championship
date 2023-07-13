@@ -9,17 +9,9 @@ class Partida():
         self.estadio = estadio
         self.golCasa = golCasa
         self.golFora = golFora
-    
-    def gol(self, clube=Clube(" "), jogador=Jogador(" ", 0, " ", Clube(" "))):
-        if clube != jogador.clube:
-            print(f'{clube.nome}: Gol contra de {jogador.nome}')
-            return
-
-        print(f'{clube.nome}: Gol de {jogador.nome}')
-
 
     def golC(self, jogador=Jogador(" ", 0, " ", Clube(" "))):
-        self.gol(self.casa, jogador)
+        jogador.gol(self.casa)
         self.golCasa += 1
         self.casa.gp += 1
         self.fora.gc += 1
@@ -27,7 +19,7 @@ class Partida():
         self.fora.sg -= 1
 
     def golF(self, jogador=Jogador(" ", 0, " ", Clube(" "))):
-        self.gol(self.fora, jogador)
+        jogador.gol(self.fora)
         self.golFora += 1
         self.casa.gc += 1
         self.fora.gp += 1
